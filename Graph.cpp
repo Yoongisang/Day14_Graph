@@ -68,6 +68,12 @@ void Graph::DeleteEdge(int node, int deleteEdge)
 void Graph::ShowGraphEdge(int node)
 {
     Node* show = graph[node]->next;
+    if (show == nullptr)
+    {
+        cout << node << " 비어있음" << endl;
+        return;
+    }
+
     while (show != nullptr)
     {
         cout << show->data << " ";
