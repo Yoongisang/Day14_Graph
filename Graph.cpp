@@ -13,12 +13,13 @@ void Graph::InitializeGraph(int nodeCount)
     {
         graph[i] = CreateNode(nodeCount);
     }
+    Count = nodeCount;
 }
 
 void Graph::AddEdge(int from, int to)
 {
     Node* newEdge = new Node;
-    newEdge->data = graph[to]->data;
+    newEdge->data = to;
     newEdge->next = nullptr;
     if (graph[from]->next == nullptr)
     {
@@ -39,7 +40,19 @@ void Graph::DeleteEdge(int node, int deleteEdge)
 {
     Node* del = graph[node]->next;
     Node* pre = graph[node];
-    while (del->next != nullptr)
+
+    if (del == nullptr)
+    {
+        return;
+    }
+    if (del->data == deleteEdge)
+    {
+        pre->next = del->next;
+        delete del;
+        return;
+    }
+
+    while (del != nullptr)
     {
         if (del->data == deleteEdge)
         {
@@ -47,15 +60,15 @@ void Graph::DeleteEdge(int node, int deleteEdge)
             delete del;
             break;
         }
-        del = del->next;
-        pre = pre->next;
+        pre = del;
+        del = del->next; 
     }
 }
 
 void Graph::ShowGraphEdge(int node)
 {
     Node* show = graph[node]->next;
-    while (show->next != nullptr)
+    while (show != nullptr)
     {
         cout << show->data << " ";
         show = show->next;
@@ -74,10 +87,20 @@ Node* Graph::CreateNode(int data)
 Graph::Graph()
 {
     graph = nullptr;
-}
+}s
 
 Graph::~Graph()
 {
+    for (int i = 0; i < Count; i++)
+    {
+        Node* current = graph[i];
+        while (current != nullptr)
+        {
+            Node* temp = current;
+            current = current->next;
+            delete temp;
+        }
+    }
     delete[] graph;
     graph = nullptr;
 }

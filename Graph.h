@@ -14,6 +14,7 @@ class Graph
 private:
 	Node** graph;
 public:
+	int Count = 0;
 	void InitializeGraph(int nodeCount);
 	void AddEdge(int from, int to);
 	void DeleteEdge(int node, int deleteEdge);
