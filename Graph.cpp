@@ -87,7 +87,7 @@ Node* Graph::CreateNode(int data)
 Graph::Graph()
 {
     graph = nullptr;
-}s
+}
 
 Graph::~Graph()
 {
