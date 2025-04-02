@@ -11,7 +11,7 @@ void Graph::InitializeGraph(int nodeCount)
     graph = new Node* [nodeCount];
     for (int i = 0; i < nodeCount; i++)
     {
-        graph[i] = CreateNode(nodeCount);
+        graph[i] = CreateNode(i);
     }
     Count = nodeCount;
 }
