@@ -1,7 +1,8 @@
 #include "Graph.h"
 
-void main()
+int main()
 {
+
 	Graph graph;
 
 	graph.InitializeGraph(9);
@@ -36,4 +37,6 @@ void main()
 	{
 		graph.ShowGraphEdge(i);
 	}
+
+	return 0;
 }
