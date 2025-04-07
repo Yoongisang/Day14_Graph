@@ -18,9 +18,7 @@ void Graph::InitializeGraph(int nodeCount)
 
 void Graph::AddEdge(int from, int to)
 {
-    Node* newEdge = new Node;
-    newEdge->data = to;
-    newEdge->next = nullptr;
+    Node* newEdge = CreateNode(to);
     if (graph[from]->next == nullptr)
     {
         graph[from]->next = newEdge;
