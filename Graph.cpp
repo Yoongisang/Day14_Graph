@@ -9,11 +9,11 @@ void Graph::InitializeGraph(int nodeCount)
     }
 
     graph = new Node* [nodeCount];
+    Count = nodeCount;
     for (int i = 0; i < nodeCount; i++)
     {
         graph[i] = CreateNode(i);
     }
-    Count = nodeCount;
 }
 
 void Graph::AddEdge(int from, int to)

@@ -23,7 +23,5 @@ private:
 	Node* CreateNode(int data);
 public:
 	Graph();
-	~Graph();
-
-	
+	~Graph();	
 };
